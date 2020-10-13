@@ -14,7 +14,7 @@ export const startLoginWithEmailPassword = (email, password) => {
   }
 }
 
-const login = (uid, displayEmail) => ({
+export const login = (uid, displayEmail) => ({
   type: types.AUTH_LOGIN,
   payload: {
     uid,
@@ -25,4 +25,19 @@ const login = (uid, displayEmail) => ({
 const fetchingLogin = (isFetching) => ({
   type: types.AUTH_FETCHING_LOGIN,
   payload: isFetching,
+})
+
+export const startLogout = () => {
+  return async (dispatch) => {
+    try {
+      await myFirebase.auth().signOut();
+      dispatch(logout());
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+const logout = () => ({
+  type: types.AUTH_LOGOUT
 })

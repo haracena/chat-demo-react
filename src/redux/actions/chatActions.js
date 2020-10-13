@@ -31,3 +31,9 @@ const fetchingRealtimeUsers = (isFetching) => ({
   type: types.CHAT_GET_REALTIME_USERS_FETCH,
   payload: isFetching
 })
+
+export const startSendMessage = () => {
+  return async (dispatch) => {
+    
+  }
+}
