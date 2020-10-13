@@ -1,0 +1,63 @@
+.chat-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.chat-board {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+}
+
+.chat-messages-board {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  background-color: $color-grey-light;
+}
+
+.chat-header {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-grey-dark;
+  color: $color-white;
+}
+
+.chat-message-tab {
+  width: 100%;
+  min-height: 5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__input-text {
+    height: 100%;
+    width: 50%;
+    min-width: 20rem;
+    padding: 0 1rem;
+    border: none;
+    // border-bottom: 1px solid $color-grey-light;
+    border-radius: 3px;
+    background-color: $color-grey-light-2;
+  }
+
+  &__send-btn {
+    height: 100%;
+    width: 3rem;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+}
+
+.chat-sidebar {
+  height: 100%;
+  width: 25%;
+  background-color: orangered;
+}
