@@ -11,11 +11,12 @@ const Message = ({ message, messageUid, messageTimestamp, avatar, displayName })
       }`}
     >
       {messageUid !== uid && (
-        <img
-          src={avatar}
-          alt='avatar-picture'
-          className='chat-message__avatar'
-        />
+        // <img
+        //   src={avatar}
+        //   alt='avatar-picture'
+        //   className='chat-message__avatar'
+        // />
+        <div className='chat-message__avatar' style={{ backgroundImage:`url('${avatar}')`, backgroundSize: 'cover' }}></div>
       )}
       {messageUid !== uid && <p className='chat-message__displayName'>{displayName}</p>}
       <p className='chat-message__text'>{message}</p>
