@@ -11,7 +11,7 @@ const ChatHeader = () => {
   return (
     <div className="chat-header">
       <h1>Chat Demo</h1>
-      <button className='chat-logout-btn' onClick={handleLogout}>Logout</button>
+      <button className='chat-logout-btn' onClick={handleLogout}>Salir</button>
     </div>
   )
 }

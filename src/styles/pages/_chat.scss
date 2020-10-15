@@ -1,6 +1,7 @@
 .chat-page {
   height: 100vh;
   width: 100vw;
+  // margin: 0 auto;
   display: flex;
 }
 
@@ -8,9 +9,9 @@
   height: 100%;
   padding: 0 1rem;
   border: none;
-  background-color: $color-grey-dark;
-  color: $color-white;
-  transition: all .3s;
+  background-color: $color-white;
+  color: $color-grey-dark;
+  transition: all 0.3s;
   cursor: pointer;
   position: absolute;
   right: 0;
@@ -36,7 +37,9 @@
   width: 100%;
   padding: 2rem;
   overflow: auto;
-  background-color: $color-grey-light;
+  // background-color: $color-grey-light;
+  // background-image: url('../../assets/img/bg.png');
+  // background-size: cover;
 }
 
 .chat-header {
@@ -46,8 +49,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $color-grey-dark;
-  color: $color-white;
+  box-shadow: 0px 4px 5px #0000000f;
 }
 
 .chat-message-tab {
@@ -57,6 +59,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px -4px 5px #0000000f;
 
   &__input-text {
     height: 100%;
@@ -64,21 +67,11 @@
     min-width: 20rem;
     padding: 0 1rem;
     border: none;
-    // border-bottom: 1px solid $color-grey-light;
     border-radius: 3px;
     background-color: $color-grey-light-2;
   }
 
-  &__send-btn {
-    height: 100%;
-    width: 3rem;
-    border: none;
-    border-radius: 3px;
-    background-color: $color-grey-dark;
-    color: $color-white;
-    margin-left: 1rem;
-    cursor: pointer;
-  }
+
 }
 
 .chat-sidebar {
@@ -89,16 +82,72 @@
 
 .chat-message {
   width: fit-content;
-  background-color: $color-grey-dark;
-  color: $color-white;
-  border-radius: 25px;
-  padding: 1rem 2rem;
-  margin-bottom: 1rem;
-  font-size: .9rem;
+  max-width: 50%;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  position: relative;
+  line-height: 20px;
 
   &--recieved {
-    background-color: $color-white;
-    color: $color-grey-dark;
+    background-color: #f4f4f4;
+    color: #303030;
+    margin-left: 30px;
+
+    &::before {
+      content: '';
+      height: 20px;
+      width: 20px;
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      background-color: #f4f4f4;
+      position: absolute;
+      bottom: 0;
+      left: -10px;
+    }
+  }
+
+  &--send {
+    background-color: #303030;
+    color: #ffffff;
     align-self: flex-end;
+    position: relative;
+
+    &::after {
+      content: '';
+      height: 20px;
+      width: 20px;
+      clip-path: polygon(0 100%, 0 0, 100% 100%);
+      background-color: #303030;
+      position: absolute;
+      bottom: 0;
+      right: -10px;
+    }
+  }
+
+  &__avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: -45px;
+    object-fit: cover;
+  }
+
+  &__time {
+    font-size: 10px;
+    position: absolute;
+    color: #63697B;
+    bottom: -25px;
+
+    &--recieved {
+      left: -10px;
+      
+    }
+
+    &--send {
+      right: 0;
+    }
   }
 }

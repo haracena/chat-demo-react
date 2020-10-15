@@ -4,7 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { myFirebase } from '../firebase/firebase-config';
 import ChatPage from '../pages/Chat/ChatPage';
 import LoginPage from '../pages/Login/LoginPage';
+import Profile from '../pages/Profile/Profile';
 import { login } from '../redux/actions/authActions';
+
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -27,13 +29,14 @@ const AppRouter = () => {
   }, [dispatch, setChecking, setIsLoggedIn]);
 
   if (checking) {
-    return <h1>Loading</h1>;
+    return <h1>Verificando usuario</h1>;
   }
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={LoginPage} />
         <Route exact path='/chat' component={ChatPage} />
+        <Route exact path='/profile' component={Profile} />
       </Switch>
     </BrowserRouter>
   );

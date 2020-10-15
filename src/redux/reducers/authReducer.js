@@ -4,6 +4,7 @@ const initialState =  {
   uid: '',
   name: '',
   email: '',
+  photoURL: '',
   authLoading: false,
   authError: '',
 }
@@ -15,6 +16,8 @@ export const authReducer = (state = initialState, {type, payload}) => {
         ...state,
         uid: payload.uid,
         email: payload.displayEmail,
+        displayName: payload.displayName,
+        photoURL: payload.photoURL
       }
     
     case types.AUTH_FETCHING_LOGIN:

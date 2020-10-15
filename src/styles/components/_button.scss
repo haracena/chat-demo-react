@@ -1,0 +1,18 @@
+.btn-send-message {
+  border: none;
+  background-color: #F4C02E;
+  margin-left: 1rem;
+  height: 35px;
+  width: 35px;
+  padding: 10px;
+  cursor: pointer;
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 55%, 50% 50%, 25% 45%);
+
+  &:hover{
+    background-color: lighten(#F4C02E, 10);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
