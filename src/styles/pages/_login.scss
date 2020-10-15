@@ -58,6 +58,12 @@
     border-radius: 3px;
     background-color: $color-grey-light-2;
   }
+
+  &__error {
+    color: red;
+    font-size: 14px;
+    margin: 1rem auto;
+  }
 }
 
 .btn--form {

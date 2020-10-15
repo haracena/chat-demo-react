@@ -7,16 +7,17 @@ export const startLoginWithEmailPassword = (email, password) => {
       dispatch(fetchingLogin(true));
       const { user } = await myFirebase
         .auth()
-        .signInWithEmailAndPassword(email, password, user.displayName, user.photoURL);
+        .signInWithEmailAndPassword(email, password);
       console.log(user);
       // await user.updateProfile({
       //   displayName: 'Javiera Pérez',
       //   photoURL: 'https://i.imgur.com/8iLrK3r.jpg',
       // });
-      dispatch(login(user.uid, user.email));
+      dispatch(login(user.uid, user.email, user.displayName, user.photoURL));
       dispatch(fetchingLogin(false));
     } catch (e) {
-      console.log(e);
+      console.log(e.code);
+      dispatch(authError(e.code));
     }
   };
 };
@@ -49,4 +50,9 @@ export const startLogout = () => {
 
 const logout = () => ({
   type: types.AUTH_LOGOUT,
+});
+
+const authError = (error) => ({
+  type: types.AUTH_ERROR,
+  payload: error
 });

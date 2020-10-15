@@ -17,7 +17,7 @@ const AppRouter = () => {
   useEffect(() => {
     myFirebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.email));
+        dispatch(login(user.uid, user.email, user.displayName, user.photoURL));
         setIsLoggedIn(true);
 
       } else {

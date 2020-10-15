@@ -27,6 +27,8 @@ const ChatMessagesBoard = () => {
             message={msg.text}
             messageUid={msg.uid}
             messageTimestamp={msg.createdAt}
+            avatar={msg.photoURL}
+            displayName={msg.displayName}
           />
         ))}
       <div ref={scrollChat}></div>

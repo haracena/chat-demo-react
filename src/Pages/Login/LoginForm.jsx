@@ -9,8 +9,9 @@ const LoginForm = () => {
     password: '',
   };
 
-  const {uid, authLoading, authError} = useSelector(state => state.auth);
+  const { uid, authLoading, authError } = useSelector((state) => state.auth);
   const [formValues, setFormValues] = useState(initialValues);
+  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -18,16 +19,23 @@ const LoginForm = () => {
     uid && history.push('/chat');
   }, [uid]);
 
+  useEffect(() => {
+    if (authError.length > 0) {
+      setError('Credenciales incorrectas');
+    }
+  }, [authError]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('SUBMITED');
     console.log(formValues);
-    const {email, password} = formValues;
+    const { email, password } = formValues;
 
     if (email.length > 0 && password.length > 0) {
       dispatch(startLoginWithEmailPassword(email, password));
     } else {
       console.log('campos vacíos');
+      setError('Campos vacíos');
     }
   };
 
@@ -56,9 +64,12 @@ const LoginForm = () => {
         placeholder='Contraseña'
         onChange={handleInputChange}
       />
+
       <button className='btn--form' type='submit'>
         Ingresar
       </button>
+
+      {error.length > 0 && <p className='login-form__error'>{error}</p>}
     </form>
   );
 };
